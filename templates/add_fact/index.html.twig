@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddFactController!{% endblock %}
+
+{% block content %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; height:575px; margin-top:175px;}
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1> Ajouter votre fact d'Emmanuel Macron </h1>
+    {% if formIsValidated %}
+    <div>
+    <b>Le fact de : {{fact.auteur}} a été validé
+    </div>
+    {% endif %}
+    <br>
+    {{ form_start(form, {'attr': {'class': 'row'}}) }}
+        <div class="input-field col s12 m12 l12">
+            {{ form_label(form.fact, 'Votre fact') }}
+            {{ form_widget(form.fact) }} </div>
+        <div class="input-field col s12 m6 l6">
+            {{ form_label(form.auteur, 'Votre nom') }}
+            {{ form_widget(form.auteur) }}
+        </div>
+         <div class="input-field col s12 m6 l6">
+            {{ form_label(form.date, 'Date') }}
+            {{ form_widget(form.date) }}
+        </div>
+        <div class="input-field col s12 m12 l12">
+            <input type="submit" name="submit" value="Valider" class="btn btn-primary">
+        </div>
+    {{ form_end(form) }}
+    </div>
+{% endblock %}
